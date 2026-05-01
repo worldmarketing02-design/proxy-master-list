@@ -4,9 +4,9 @@ name: Update Master Nodes
 on:
   schedule:
     - cron: '0 0 * * *' # Runs every day at Midnight UTC
-  workflow_dispatch: # Allows you to click a button on GitHub to run it manually
+  workflow_dispatch: # Allows you to manually click a button to run it immediately
 
-# Give the bot permission to push code to your repo
+# Give the GitHub bot permission to save the new files to your repository
 permissions:
   contents: write
 
@@ -30,6 +30,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
-          git add nodes.json
-          # Only commit if the file actually changed
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-updated nodes.json" && git push)
+          git add nodes.json sub.txt
+          # Only commit if the files actually changed
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-updated master proxy nodes" && git push)
