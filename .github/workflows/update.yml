@@ -1,0 +1,35 @@
+name: Update Master Nodes
+
+# When should this run?
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at Midnight UTC
+  workflow_dispatch: # Allows you to click a button on GitHub to run it manually
+
+# Give the bot permission to push code to your repo
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🕷️ Run Web Scraper
+        run: node scraper.js
+
+      - name: 💾 Commit and Push changes
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          git add nodes.json
+          # Only commit if the file actually changed
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-updated nodes.json" && git push)
