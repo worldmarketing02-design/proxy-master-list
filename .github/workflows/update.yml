@@ -1,12 +1,10 @@
 name: Update Master Nodes
 
-# When should this run?
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at Midnight UTC
-  workflow_dispatch: # Allows you to manually click a button to run it immediately
+    - cron: '0 0 * * *' 
+  workflow_dispatch: 
 
-# Give the GitHub bot permission to save the new files to your repository
 permissions:
   contents: write
 
@@ -21,7 +19,7 @@ jobs:
       - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # <--- Changed to 24 here
 
       - name: 🕷️ Run Web Scraper
         run: node scraper.js
@@ -31,5 +29,4 @@ jobs:
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           git add nodes.json sub.txt
-          # Only commit if the files actually changed
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-updated master proxy nodes" && git push)
