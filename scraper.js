@@ -1,11 +1,21 @@
 const fs = require('fs');
 
 const sourceUrls = [
+  // Original sources
   "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Reality",
   "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub",
   "https://raw.githubusercontent.com/Epodonnis/v2ray-configs/main/All_Configs_Sub.txt",
   "https://raw.githubusercontent.com/mfuu/v2ray/master/v2ray",
-  "https://raw.githubusercontent.com/freefq/free/master/v2"
+  "https://raw.githubusercontent.com/freefq/free/master/v2",
+  
+  // NEW: Additional High-Volume Sources
+  "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
+  "https://raw.githubusercontent.com/tbbatbb/Proxy/master/main/sub",
+  "https://raw.githubusercontent.com/a2470982985/miaoko/master/subscribe.txt",
+  "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray",
+  "https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2",
+  "https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription_num",
+  "https://raw.githubusercontent.com/v2ray-links/v2ray-free/master/v2ray"
 ];
 
 async function scrapeNodes() {
