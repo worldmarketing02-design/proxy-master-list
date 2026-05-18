@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "last_updated": "2026-05-17T08:34:42.303Z",
-  "total_nodes_scraped": 762,
+  "last_updated": "2026-05-18T12:52:23.545Z",
+  "total_nodes_scraped": 820,
   "subscriptions": [
     "https://raw.githubusercontent.com/worldmarketing02-design/proxy-master-list/main/sub.txt"
   ]
